@@ -1,0 +1,7 @@
+<% if sale.upcoming? %>
+  <span class="label label-info">Hasn't started!</span>
+<% elsif sale.expired? %>
+  <span class="label label-danger">Expired!</span>
+<% else %>
+  <span class="label label-success">Currently running!</span>
+<% end %>

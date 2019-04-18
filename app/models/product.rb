@@ -10,4 +10,17 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  def apply_sale
+    first_sale =  Sale.active_sale.first
+    percent_off = Sale.active_sale.first.percent_off if first_sale
+
+    unless first_sale.nil?
+      sale_price = (100 - percent_off)/100.0 * price
+      puts sale_price
+      sale_price
+    else
+      price
+    end
+  end
+
 end
